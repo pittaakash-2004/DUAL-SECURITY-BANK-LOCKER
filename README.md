@@ -2,7 +2,7 @@
 
 📖 Overview
     
-    The Dual-Security Bank Locker is an embedded security system designed to provide enhanced protection for bank lockers using two-factor authentication. The system combines password verification and fingerprint authentication to ensure that only authorized users can access the locker.
+The Dual-Security Bank Locker is an embedded security system designed to provide enhanced protection for bank lockers using two-factor authentication. The system combines password verification and fingerprint authentication to ensure that only authorized users can access the locker.
 Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fingerprint module, keypad, EEPROM, LCD, and DC motor to provide a secure, reliable, and user-friendly locker access system.
 
 🎯 Aim
