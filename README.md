@@ -178,4 +178,4 @@ Through this project, the following concepts were implemented and learned:
 
 AKASH PITTA
 
-Bachelor of Technology (Electronics and Communication Engineerin).
+Bachelor of Technology (Electronics and Communication Engineering).
