@@ -121,6 +121,7 @@ DUAL-SECURITY-BANK-LOCKER/
 ├── device.c
 ├── device.h
 ├── ext_int.c
+├── ext_int.h
 ├── README.md
 
  🚀 Implementation Steps
