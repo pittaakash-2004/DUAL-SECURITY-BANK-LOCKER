@@ -176,5 +176,6 @@ Through this project, the following concepts were implemented and learned:
 
  👨‍💻 Author
 
-Akash PITTA
+AKASH PITTA
+
 Bachelor of Technology (Electronics and Communication Engineerin).
