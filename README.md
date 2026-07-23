@@ -46,6 +46,7 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
  🏗 System Architecture
 
 The system consists of the following modules:
+
 🔹 LPC2148 ARM7 Controller
 - Controls all peripherals
 - Executes authentication logic
