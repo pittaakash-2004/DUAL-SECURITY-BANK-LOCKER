@@ -11,8 +11,8 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
   1)Password Verification
   2)fingerprint Authentication
   Only after successful verification of both authentication methods will the locker be unlocked.
-
-✨ Features
+  
+  ✨ Features
 
 - Dual-factor authentication (Password + Fingerprint)
 - Secure password storage in EEPROM
