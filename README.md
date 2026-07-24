@@ -103,25 +103,45 @@ Used for communication between:
  📁 Project Structure
 DUAL-SECURITY-BANK-LOCKER/
 │
+
 ├── main.c
+
 ├── lcd.c
+
 ├── lcd.h
+
 ├── kpm.c
+
 ├── kpm.h
+
 ├── uart0.c
+
 ├── uart0.h
+
 ├── i2c.c
+
 ├── i2c.h
+
 ├── i2c_eeprom.c
+
 ├── i2c_eeprom.h
+
 ├── R305.c
+
 ├── R305.h
+
 ├── delay.c
+
 ├── delay.h
+
 ├── device.c
+
 ├── device.h
+
 ├── ext_int.c
+
 ├── ext_int.h
+
 ├── README.md
 
  🚀 Implementation Steps
