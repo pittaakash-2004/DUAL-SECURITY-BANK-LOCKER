@@ -12,7 +12,7 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
   2)fingerprint Authentication
   Only after successful verification of both authentication methods will the locker be unlocked.
 
-  Block Diagram
+  📌 Block Diagram
   
   <img width="669" height="417" alt="image" src="https://github.com/user-attachments/assets/401bffea-2cb1-4254-b856-1cab82be28b0" />
 
