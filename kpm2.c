@@ -1,143 +1,89 @@
 //kpm2.c
-
 #include <LPC21xx.h>
-
 #include "types.h"
-
 #include "defines.h"
 #include"delay.h"
-
 #include "kpm_defines.h"
 #include "kpm.h"
-
 #include "lcd.h"
 #include "lcd_defines.h"
-
 u8 kpmLUT[4][4]=
-
 {
-
 	{'1','2','3','A'},
-
 	{'4','5','6','B'},
-
 	{'7','8','9','C'},
-
 	{'*','0','=','D'}
-
 };
-
+// Function to scan all keypad columns
 u32 ColScan(void)
-
 {
-
-	u32 t;
-
-	t=(READNIBBLE(IOPIN1,COL0) < 15) ? 0 : 1;
-
+	u32 t;   // Variable to store column scan result
+	// Read the 4 column bits.
+	// If any column is LOW (value < 15), return 0 (key pressed),
+	// otherwise return 1 (no key pressed).
+	t = (READNIBBLE(IOPIN1, COL0) < 15) ? 0 : 1;
+	// Return scan result
 	return t;
-
 }
-
-
+// Function to identify which row contains the pressed key
 u32 RowCheck(void)
-
 {
-
-	u32 rNo;
-
-	for(rNo=0;rNo<4;rNo++)
-
+	u32 rNo;   // Variable to hold row number
+	// Scan all four rows one by one
+	for(rNo = 0; rNo < 4; rNo++)
 	{
-
-		//grounding 0th to 3rd row iterative
-
-    WRITENIBBLE(IOPIN1,ROW0,~(1<<rNo));	
-
-    if(ColScan()==0)
-
-       break;			
-
+		// Make only the current row LOW (ground)
+		// and keep all other rows HIGH
+		WRITENIBBLE(IOPIN1, ROW0, ~(1 << rNo));
+		// Check whether any column becomes LOW
+		// indicating a key press in this row
+		if(ColScan() == 0)
+			break;   // Stop scanning when the active row is found
 	}
-
-	WRITENIBBLE(IOPIN1,ROW0,0);
-
+	// Restore all rows to HIGH after scanning
+	WRITENIBBLE(IOPIN1, ROW0, 0);
+	// Return detected row number
 	return rNo;
-
 }
-
-
+// Function to determine which column has the pressed key
 u32 ColCheck(void)
-
 {
-
-	u32 cNo;
-
-	for(cNo=0;cNo<=3;cNo++)
-
+	u32 cNo;   // Variable to hold column number
+	// Check each of the four columns
+	for(cNo = 0; cNo <= 3; cNo++)
 	{
-
-		if(READBIT(IOPIN1,COL0+cNo)==0) 
-
-       break;			
-
+		// If current column is LOW,
+		// then the key belongs to this column
+		if(READBIT(IOPIN1, COL0 + cNo) == 0)
+			break;   // Stop once the pressed column is found
 	}
-
+	// Return detected column number
 	return cNo;
-
 }
-
 
 void Init_KPM(void)
-
 {
-
 	WRITENIBBLE(IODIR1,ROW0,15);
-
 	//ground all rows
-
-	
-
 	//let all columns be high
-
 	//default column lines are input high
-
 }
-
-
 u8 KeyScan(void)
-
 {
-
 	u32 rNo,cNo;
-
   //wait to detect any key press
-
 	while(ColScan()==1);
-
 	//if any key pressed was detected & 
-
 	//while key is in pressed state
-
 	//proceed to identify row in which key was 
-
 	//pressed
-
 	rNo=RowCheck();
-
 	//proceed to identify col in which key was
-
 	//presed
-
 	cNo=ColCheck();
-
 	//extract key value from LUT for key pressed
-
 	return kpmLUT[rNo][cNo];
-
 }
-
-
 u8* Read(u8*val)
 {
 	u8 keyV;
