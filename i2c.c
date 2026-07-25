@@ -53,18 +53,36 @@ void i2c_stop(void)
     I2CONCLR=1<<SIC_BIT; 
     //stop will be cleared automatically 
 } 
-u8  i2c_nack(void) 
+
+// Function to receive one byte from I2C and send NACK
+u8 i2c_nack(void) 
 {	 
-     //I2CONSET = 0x00; //Assert Not of Ack 
-     I2CONCLR=1<<SIC_BIT; 
-     while(((I2CONSET>>SI_BIT)&1)==0); 
-     return I2DAT; 
-} 
+     // Clear the SI (Serial Interrupt) flag to resume I2C operation
+     I2CONCLR = 1 << SIC_BIT;
+
+     // Wait until the next byte is received (SI flag becomes set)
+     while(((I2CONSET >> SI_BIT) & 1) == 0);
+
+     // Return the received data without acknowledging it (NACK)
+     // NACK indicates this is the last byte to be received.
+     return I2DAT;
+}
+
+// Function to receive one byte from I2C and send ACK
 u8 i2c_mack(void) 
 {	 
-    I2CONSET=1<<AA_BIT; //Assert Ack 
-    I2CONCLR=1<<SIC_BIT; 
-    while(((I2CONSET>>SI_BIT)&1)==0); 
-    I2CONCLR=1<<AAC_BIT; //Clear Assert Ack 
-    return I2DAT; 
+    // Assert ACK so the slave will continue sending the next byte
+    I2CONSET = 1 << AA_BIT;
+
+    // Clear the SI flag to continue the I2C transaction
+    I2CONCLR = 1 << SIC_BIT;
+
+    // Wait until the next byte is received (SI flag becomes set)
+    while(((I2CONSET >> SI_BIT) & 1) == 0);
+
+    // Clear the AA bit so ACK is not sent unintentionally later
+    I2CONCLR = 1 << AAC_BIT;
+
+    // Return the received data byte
+    return I2DAT;
 }
