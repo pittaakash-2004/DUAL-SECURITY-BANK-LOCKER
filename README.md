@@ -113,7 +113,9 @@ DUAL-SECURITY-BANK-LOCKER/
     
 ├── kpm.c ├── kpm.h
 
-├── uart0.c ├── uart0.h ├── ext_int.c ├── ext_int.h
+├── uart0.c ├── uart0.h 
+
+├── ext_int.c ├── ext_int.h
 
 ├── i2c.c ├── i2c.h
 
