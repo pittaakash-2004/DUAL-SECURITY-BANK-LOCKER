@@ -13,11 +13,9 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
   Only after successful verification of both authentication methods will the locker be unlocked.
 
   📌 Block Diagram
-  
- ![Uploading image.png…]()
 
+ https://chatgpt.com/s/m_6a6617bfe2f081918a5e7c842cb66955
 
-  
   ✨ Features
 
 - Dual-factor authentication (Password + Fingerprint)
