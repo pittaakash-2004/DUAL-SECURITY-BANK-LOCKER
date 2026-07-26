@@ -14,9 +14,9 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
 
   📌 Block Diagram
 
- https://chatgpt.com/s/m_6a6617bfe2f081918a5e7c842cb66955
+  <img width="975" height="608" alt="image" src="https://github.com/user-attachments/assets/179761fb-292b-477a-9738-0ca3a47b9590" />
 
-  ✨ Features
+✨ Features
 
 - Dual-factor authentication (Password + Fingerprint)
 - Secure password storage in EEPROM
