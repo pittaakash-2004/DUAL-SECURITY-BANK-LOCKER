@@ -14,7 +14,8 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
 
   📌 Block Diagram
 
-  <img width="975" height="608" alt="image" src="https://github.com/user-attachments/assets/179761fb-292b-477a-9738-0ca3a47b9590" />
+ <img width="308" height="427" alt="image" src="https://github.com/user-attachments/assets/1559e0fb-bd58-48b4-8a25-4c4783ebbda7" />
+
 
 ✨ Features
 
