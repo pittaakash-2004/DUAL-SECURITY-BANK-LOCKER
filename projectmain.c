@@ -94,15 +94,7 @@ LABEL1:
 		CmdLCD(GOTO_LINE2_POS0);                    // Move cursor to second line
 
 		usrid=Read(userid);                         // Read 4-digit User ID from keypad
-
-//		StrLCD(usrid);                             // Display entered User ID (Debug)
-
-//		delay_ms(2000);                            // Delay for debugging
-
-//		delay_ms(1000);                            // Delay for debugging
-
-//		CmdLCD(CLEAR_LCD);                         // Clear LCD (Debug)
-
+		
 		i2c_eeprom_seqread(0x50,0x0010,ruserid,4);  // Read stored User ID from EEPROM
 
 		if((mystrcmp((const char*)usrid,(const char*)ruserid))==0) // Compare entered User ID with stored User ID
@@ -111,8 +103,6 @@ LABEL1:
 
 			CmdLCD(CLEAR_LCD);                      // Clear LCD
 
-//			CmdLCD(GOTO_LINE1_POS0);               // Move cursor to first line (not required)
-
 			StrLCD("Enter 4 digit pwd:");           // Ask user to enter password
 
 			CmdLCD(GOTO_LINE2_POS0);                // Move cursor to second line
@@ -120,14 +110,6 @@ LABEL1:
 			pd=Read(pwd);                           // Read 4-digit password from keypad
 
 			CmdLCD(GOTO_LINE2_POS0);                // Move cursor to second line
-
-//			CmdLCD(CLEAR_LCD);                     // Clear LCD (Debug)
-
-//			StrLCD(rpwd);                          // Display stored password (Debug)
-
-//			delay_ms(1000);                        // Delay for debugging
-
-//			i2c_eeprom_seqread(0x50,0x000F,ruserid,4); // Old EEPROM read statement
 
 			CmdLCD(GOTO_LINE2_POS0);                // Move cursor to second line
 
