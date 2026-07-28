@@ -12,9 +12,9 @@ Built around the LPC2148 ARM7 microcontroller, the project interfaces with a fin
   2)fingerprint Authentication
   Only after successful verification of both authentication methods will the locker be unlocked.
 
-  📌 Block Diagram
+📊 Block Diagram
 
-<img width="673" height="874" alt="image" src="https://github.com/user-attachments/assets/71f57d0b-2d8c-4352-9f83-9c19f8e323ef" />
+    <img width="673" height="874" alt="image" src="https://github.com/user-attachments/assets/71f57d0b-2d8c-4352-9f83-9c19f8e323ef" />
 
 ✨ Features
 
@@ -92,6 +92,44 @@ The system consists of the following modules:
    - After a delay, the motor rotates in reverse to close the locker.
 8. If authentication fails, access is denied and the system waits for the next user.
 
+🔀 Work Flow
+
+    Power ON
+      ↓
+Initialize peripherals
+      ↓
+Enter User ID
+      ↓
+Enter Password
+      ↓
+Read password from EEPROM
+      ↓
+Compare Password
+      ↓
+Wrong Password?
+      ↓
+YES → Access Denied
+      ↓
+      NO
+      ↓
+Fingerprint Scan
+      ↓
+Fingerprint Match?
+      ↓
+NO → Access Denied
+      ↓
+     YES
+      ↓
+Rotate Motor Forward
+      ↓
+Locker Open
+      ↓
+Switch to press
+      ↓
+Rotate Motor Reverse
+      ↓
+Locker Close
+
  📡 Communication Protocols
 
  UART
@@ -108,25 +146,24 @@ Used for communication between:
 DUAL-SECURITY-BANK-LOCKER/
 
 ├── main.c
-
-├── lcd.c ├── lcd.h
-    
-├── kpm.c ├── kpm.h
-
-├── uart0.c ├── uart0.h 
-
-├── ext_int.c ├── ext_int.h
-
-├── i2c.c ├── i2c.h
-
-├── i2c_eeprom.c ├── i2c_eeprom.h
-
-├── R305.c ├── R305.h
-
-├── delay.c├── delay.h
-
-├── device.c├── device.h
-
+├── lcd.c
+├── lcd.h
+├── kpm.c
+├── kpm.h
+├── uart0.c 
+├── uart0.h 
+├── ext_int.c 
+├── ext_int.h
+├── i2c.c 
+├── i2c.h
+├── i2c_eeprom.c 
+├── i2c_eeprom.h
+├── R305.c 
+├── R305.h
+├── delay.c
+├── delay.h
+├── device.c
+├── device.h
 ├── README.md
 
  🚀 Implementation Steps
@@ -182,5 +219,4 @@ Through this project, the following concepts were implemented and learned:
  👨‍💻 Author
 
 AKASH PITTA
-
 Bachelor of Technology (Electronics and Communication Engineering).
