@@ -94,75 +94,7 @@ The system consists of the following modules:
 
 🔀 Work Flow
 
-    Power ON
-     
-      ↓
-      
-Initialize peripherals
-
-      ↓
-
-Enter User ID
-
-      ↓
-
-Enter Password
-
-      ↓
-
-Read password from EEPROM
-
-      ↓
-
-Compare Password
-
-      ↓
-
-Wrong Password?
-
-      ↓
-
-YES → Access Denied
-
-      ↓
-      
-      NO
-      
-      ↓
-
-Fingerprint Scan
-
-      ↓
-
-Fingerprint Match?
-
-      ↓
-
-NO → Access Denied
-
-      ↓
-     
-     YES
-     
-      ↓
-
-Rotate Motor Forward
-
-      ↓
-
-Locker Open
-
-      ↓
-
-Switch to press
-
-      ↓
-
-Rotate Motor Reverse
-
-      ↓
-
-Locker Close
+  <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/6572f4a1-f99c-4c62-85c5-aff4cdae100f" />
 
  📡 Communication Protocols
 
